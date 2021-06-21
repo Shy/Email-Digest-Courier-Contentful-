@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title%}{{post.title}}{% endblock %} {% block content
 %}
 <div class="row">
-    <div class="two third column" style="margin-top: 25%">
+    <div class="two-thirds column" style="margin-top: 25%">
         <h4>{{post.title}}</h4>
         {% for author in post.authors %}
         <h5>{{ author.name }}</h5>

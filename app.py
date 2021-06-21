@@ -26,7 +26,11 @@ def _jinja2_filter_datetime(date, fmt="dddd MMMM Do YYYY"):
 
 
 class subscribeForm(FlaskForm):
-    email = StringField("Your email", validators=[DataRequired(), Email()])
+    email = StringField(
+        "Your email",
+        validators=[DataRequired(), Email()],
+        render_kw={"class": "u-full-width"},
+    )
 
 
 @app.route("/", methods=["GET", "POST"])

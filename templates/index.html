@@ -1,13 +1,22 @@
 {% extends 'base.html' %} {% block title%}Home Page{% endblock %} {% block content %}
 <div class="row">
-    <div class="two third column" style="margin-top: 25%">
+    <div class="two-thirds column" style="margin-top: 25%">
         <h4>
             <i class="fas fa-envelope-open-text"></i> Contentful + Courier Newsletter
         </h4>
+
         <form method="POST" action="/">
-            {{ form.csrf_token }} {{ form.email.label }} {{ form.email(size=20) }}
-            <input type="submit" value="Subscribe!" />
+            <div class="row">
+                {{ form.csrf_token }}
+                <div class="two-thirds column">
+                    {{ form.email.label }}{{ form.email() }}
+                </div>
+                <div class="one-third column">
+                    <input type="submit" class="u-full-width" value="Subscribe!" />
+                </div>
+            </div>
         </form>
+
         <p>
             The Contentful + Courier developer newsletter is the best way to keep up
             with the Contentful + Courier developer community.
