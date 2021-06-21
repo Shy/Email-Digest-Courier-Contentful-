@@ -8,13 +8,13 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("secret_key")
 
 
-class MyForm(FlaskForm):
+class subscribeForm(FlaskForm):
     email = StringField("Your email", validators=[DataRequired(), Email()])
 
 
 @app.route("/", methods=["GET", "POST"])
 def hello_world():
-    form = MyForm()
+    form = subscribeForm()
     if request.method == "POST" and form.validate():
         return form.email.data
     return render_template("index.html", form=form)
