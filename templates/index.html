@@ -8,8 +8,23 @@
         <form method="POST" action="/">
             <div class="row">
                 {{ form.csrf_token }}
-                <div class="two-thirds column">
-                    {{ form.email.label }}{{ form.email() }}
+                <div class="one-third column">
+                    {{ form.email.label }}{{ form.email() }} {% for error in
+                    form.email.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="one-third column">
+                    {{ form.phoneNumber.label }}{{ form.phoneNumber() }} {% for error in
+                    form.phoneNumber.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="one-third column">
+                    {{ form.digest.label }}{{ form.digest() }} {% for error in
+                    form.digest.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                    {% endfor %}
                 </div>
                 <div class="one-third column">
                     <input type="submit" class="u-full-width" value="Subscribe!" />
